@@ -1,0 +1,261 @@
+
+root {
+    font-size: 16px;
+}
+
+ul {
+  list-style: none;   /* removes bullets */
+  padding: 0;         /* removes default indentation */
+  margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar-container {
+    display: flex;
+    height: 6vh;
+    justify-content: space-between; /* pushes left and right apart */
+    font-size: 1.8rem;
+    align-items: center;
+    background-color: #3A5A40;
+    /* background-color: #899D78; */
+
+}
+
+.nav-bar-container a {
+    text-decoration: none;
+    color: #EDF2F4;
+}
+
+#name {
+    margin-right: auto;
+    margin-left: 2rem;
+}
+
+.nav-buttons-container {
+    display: flex;
+    margin-right: 2rem;
+    gap: 4rem;
+}
+
+.hero-container {
+    height: 90vh;
+    width: 98vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition-property: background-color;
+    transition-duration: 3s;
+    justify-content: center;
+}
+
+.hero-container p {
+    font-size: 3rem;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+#experience {
+    width: 98vw;
+    padding: 0rem 0rem 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.2rem;
+}
+
+#experience h2{
+    padding-top: 2rem;
+    margin-bottom: -1rem;
+}
+ 
+.job h3, p {
+    font-size: 1.2rem;
+    margin: 0;
+ }
+
+.job p:first-of-type {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#projects {
+    display: grid;
+    grid-template:
+    "title title" 0.1fr
+    "project-1 photo-1" 1fr
+    "project-2 photo-2" 1fr
+    "project-3 photo-3" 1fr
+    "project-4 photo-4" 1fr
+    "project-5 photo-5" 1fr
+    / 1fr 2fr;
+    /* grid-auto-rows: minmax(200px, auto); */
+    gap: 4rem;
+    place-items: center;
+
+}
+
+#projects h2 {
+    grid-area: title;
+    font-size: 4rem;
+    justify-self: start;
+    margin-left: 1rem;
+}
+
+#projects h3 {
+    font-size: 4rem;
+    margin: 0;
+    margin-left: 2rem;
+}
+#projects p {
+    font-size: 2rem;
+    margin: 0;
+    margin-left: 2rem;
+}
+
+
+.project-photos {
+  display: flex;
+  overflow-x: auto;      /* allow horizontal scrolling */
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.project-photos img {
+
+    flex: 0 0 100%;        /* each image takes full width of container */
+    scroll-snap-align: center;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.project-1 {
+    grid-area: project-1;
+}
+
+.photo-1 {
+    grid-area: photo-1;
+}
+
+.project-2 {
+    grid-area: project-2;
+}
+
+.photo-2 {
+    grid-area: photo-2;
+}
+
+.project-3 {
+    grid-area: project-3;
+}
+
+.photo-3 {
+    grid-area: photo-3;
+}
+
+.project-4 {
+    grid-area: project-4;
+}
+
+.photo-4 {
+    grid-area: photo-4;
+    background-color: #1F487E;
+}
+
+.project-5 {
+    grid-area: project-5;
+}
+
+.photo-5 {
+    grid-area: photo-5;
+    background-color: #1F487E;
+}
+
+#stack {
+    width: 100%;
+    height: 40vh;
+    background-color: aquamarine;
+}
+
+#stack h2 {
+    padding: 1rem 0 0 1rem;
+}
+
+.first-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+.second-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.stack-item {
+    color: white;
+    background-color: #1F487E;
+    border-radius: 30px;
+    width: fit-content;
+    padding: 0.5rem 0.8rem 0.5rem 0.8em;
+    font-size: 1.3rem;
+
+}
+
+.stack-item:hover {
+    transition: background-color 0.5s, transform 0.2s;
+    background-color: rgb(117, 212, 212);
+    transform: rotate(4deg);
+}
+
+.autoRotate {
+    animation: autoRotateAnimation;
+    animation-timeline: view();
+}
+
+@keyframes autoRotateAnimation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transfrom: rotate(360deg);
+    }
+}
+
+.autoShow {
+    animation: autoShowAnimation both;
+    animation-timeline: view(40%,50%);
+}
+@keyframes autoShowAnimation {
+    from {
+        opacity:0;
+        transform: translateY(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.autoBlur {
+    animation: autoBlurAnimation linear both;
+    animation-timeline: view();
+}
+@keyframes autoBlurAnimation {
+    0% {
+        filter: blur(40px);
+    }
+    45%, 55% {
+        filter: blur(0px);
+    }
+    100% {
+        filter: blur(40px);
+    }
+    
+}
