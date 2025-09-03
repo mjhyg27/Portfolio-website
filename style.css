@@ -1,6 +1,10 @@
 
-root {
+
+
+:root {
     font-size: 16px;
+    --main-color: #3A5A40;
+    --complementary-color: #5A3A54;
 }
 
 ul {
@@ -54,10 +58,38 @@ body {
 
 .hero-container p {
     font-size: 3rem;
+
+}
+.hero-container span {
+    color: green;
 }
 
 h1 {
-    font-size: 6rem;
+  font-size: 6rem;
+  font-weight: bold;
+  color: transparent;
+  position: relative;
+  /* background-image: repeating-linear-gradient(45deg,  #3A5A40 0 20px,#5A3A54 20px 40px); */
+  background-image: conic-gradient( green ,blue, red);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text; /* required for WebKit */
+  -webkit-text-fill-color: transparent; /* makes gradient visible in Safari/Chrome */
+  animation: titleAnimation 4s infinite linear;
+
+}
+
+
+@keyframes titleAnimation { 
+  0% {
+    background-position: 0% 0%;
+  } 
+  50% {
+    background-position: 0% 50%;
+  } 
+  100% {
+    background-position: 0% 100%;
+  }
 }
 
 #experience {
@@ -66,15 +98,27 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 4.2rem;
+    overflow: hidden;
 }
 
 #experience h2{
     padding-top: 2rem;
     margin-bottom: -1rem;
+    font-size: 3rem;
 }
  
+.job {
+    transform: translateX(200px);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.6s;
+}
+
+.animatedJob {
+    opacity: 1;
+    transform: translateX(0);
+}
 .job h3, p {
-    font-size: 1.2rem;
+    font-size: 3rem;
     margin: 0;
  }
 
@@ -94,9 +138,13 @@ h1 {
     "project-5 photo-5" 1fr
     / 1fr 2fr;
     /* grid-auto-rows: minmax(200px, auto); */
-    gap: 4rem;
+    gap: 8rem;
     place-items: center;
+    transition: opacity 0.7s;
 
+}
+#projects article {
+    transition: opacity 1s;
 }
 
 #projects h2 {
@@ -104,36 +152,64 @@ h1 {
     font-size: 4rem;
     justify-self: start;
     margin-left: 1rem;
+    transition: opacity 1s;
 }
 
 #projects h3 {
     font-size: 4rem;
     margin: 0;
     margin-left: 2rem;
+    transition: opacity 1s;
+    color: var(--main-color);
 }
+
 #projects p {
     font-size: 2rem;
     margin: 0;
     margin-left: 2rem;
+    transition: opacity 1s;
 }
 
-
-.project-photos {
-  display: flex;
-  overflow-x: auto;      /* allow horizontal scrolling */
-  scroll-snap-type: x mandatory;
-  gap: 1rem;
-  width: 100%;
-  max-width: 800px;
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    transition: opacity 1s;
 }
 
-.project-photos img {
-
-    flex: 0 0 100%;        /* each image takes full width of container */
-    scroll-snap-align: center;
-    object-fit: cover;
-    border-radius: 10px;
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* or cover */
+    display: block;
+    transition: opacity 1s;
 }
+
+.carousel-track {
+    height: 800px;
+    transition: opacity 1s;
+    overflow: hidden;
+} 
+.carousel ul {
+    height: 800px;
+    width: 9999px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: transform 0.5s, opacity 1s;
+    font-size: 0;
+}
+
+.carousel li {
+    display: inline-block;  
+    width: 1000px;   /* fixed slide width */
+    height: 800px;
+    transition: opacity 1s;
+}  
 
 .project-1 {
     grid-area: project-1;
@@ -165,7 +241,6 @@ h1 {
 
 .photo-4 {
     grid-area: photo-4;
-    background-color: #1F487E;
 }
 
 .project-5 {
@@ -174,7 +249,6 @@ h1 {
 
 .photo-5 {
     grid-area: photo-5;
-    background-color: #1F487E;
 }
 
 #stack {

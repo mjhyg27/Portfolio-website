@@ -12,7 +12,7 @@
     <a href="#home" class="nav-bar-elem" id="name">Miguel Romo</a>
     <div class="nav-buttons-container">
         <a href="#home" class="nav-bar-elem">Home</a>
-        <a href="#about" class="nav-bar-elem">About</a>
+        <a href="#contact" class="nav-bar-elem">Contact Me</a>
         <a href="#experience" class="nav-bar-elem">Experience</a>
         <a href="#projects" class="nav-bar-elem">Projects</a>
     </div>
@@ -24,8 +24,8 @@
     <div class="hero-container" id="home">
         <p>Hi, I'm</p>
         <h1>Miguel Romo</h1>
-        <p>Mechatronics Engineer</p><br>
-        <p>Recent Graduate with 2+ years of Experience</p>
+        <p><span>Mechatronics Engineer</span></p><br>
+        <p>Recent Graduate with <span>2+ years</span> of Experience</p>
     </div>
 
     <section id="experience">
@@ -59,36 +59,38 @@
             <p>June 2023 - December 2023</p>
         </article>
 
-        <div class="photo-1 project-photos">
-            <img src="SharkNinja/Coffee/news21 2023-11-30 027.jpg">
-            <img src="SharkNinja/Coffee/news21 2023-11-30 031.jpeg">
-            <img src="SharkNinja/Coffee/news21 2023-11-30 042.jpg">
-            <img src="SharkNinja/Coffee/news21 2023-12-01 029.jpg">
-            <img src="SharkNinja/Coffee/news21 2023-12-01 031.jpg">
-            <img src="SharkNinja/Coffee/news21 2023-12-01 032.jpg">
-            <img src="SharkNinja/Coffee/news21 2023-12-04 003.jpg">
-            <img src="SharkNinja/Coffee/news21 2023-12-04 005.jpg">
-            <img src="SharkNinja/Coffee/news21 2023-12-13 006.jpg">
-            <img src="SharkNinja/Coffee/news21 2023-12-13 009.jpg">
+        <div class="photo-1 carousel">
+            <div class="carousel-track">
+                <ul>
+                    <li><img src="SharkNinja/Coffee/GUI.jpg"></li>
+                    <li><img src="SharkNinja/Coffee/news21 2023-11-30 031.jpeg"></li>
+                    <li><img src="SharkNinja/Coffee/news21 2023-11-30 027.jpg"></li>
+                    <li><img src="SharkNinja/Coffee/news21 2023-12-01 032.jpg"></li>
+                </ul>
+            </div>
+            <div>
+                <button class="prev" type="button">Prev</button>
+                <button class="next">Next</button>
+            </div>
         </div>
-
         <article class="project-2">
             <h3>Automated Cistern Control and Monitoring System</h3>
             <p>Automation & Control Engineer</p>
             <p>January 2024 - January 2025</p>
         </article>
-
-        <div class="photo-2 project-photos">
-            <img src="Cistern Control/2024-05-27 068.jpg">
-            <img src="Cistern Control/2024-06-04 017.jpg">
-            <img src="Cistern Control/2024-06-05 017.jpg">
-            <img src="Cistern Control/2024-06-05 028.jpg">
-            <img src="Cistern Control/2024-06-05 032.jpg">
-            <img src="Cistern Control/2024-06-05 035.jpg">
-            <img src="Cistern Control/2024-06-05 039.jpg">
-            <img src="Cistern Control/2024-06-05 043.jpg">
-            <img src="Cistern Control/2024-06-05 045.jpg">
-            <img src="Cistern Control/2024-06-05 049.jpg">
+        
+        <div class="photo-2 carousel">
+            <button class="prev">Prev</button>
+            <div class="carousel-track">
+                <ul>
+                    <li><img src="Cistern Control/2024-05-27 068.jpg"></li>
+                    <li><img src="Cistern Control/2024-06-04 017.jpg"></li>
+                    <li><img src="Cistern Control/2024-06-05 032.jpg"></li>
+                    <li><img src="Cistern Control/2024-06-05 028.jpg"></li>
+                    <li><img src="Cistern Control/2024-06-05 035.jpg"></li>
+                </ul>
+            </div>
+            <button class="next">Next</button>
         </div>
         
         <article class="project-3">
@@ -96,9 +98,15 @@
             <p>Web Developer</p>
             <p>January 2025 - June 2025</p>
         </article>
-
-        <div class="photo-3 project-photos">
-            <img src="Cistern Control/2024-05-27 068.jpg">
+        
+        <div class="photo-3 carousel">
+            <button class="prev"></button>
+            <div class="carousel-track">
+                <ul>
+                    <li><img src="Cistern Control/2024-05-27 068.jpg"></li>
+                </ul>
+            </div>
+            <button class="next"></button>
         </div>
         
         <article class="project-4">
@@ -106,23 +114,34 @@
             <p>Mechanical & Manufacture Engineer</p>
             <p>February 2022 - June 2022</p>
         </article>
-
-        <div class="photo-4 project-photos">
-            <img src="RowAir/rowAir.jpg">
-            <img src="RowAir/rowAir2.jpg">
+        
+        <div class="photo-4 carousel">
+            <button class="prev"></button>
+            <div class="carousel-track">
+                <ul>
+                    <li><img src="RowAir/rowAir.jpg"></li>
+                    <li><img src="RowAir/rowAir2.jpg"></li>
+                </ul>
+            </div>
+            <button class="next"></button>
         </div>
-
+        
         <article class="project-5">
             <h3>Automatic Tortilla Machine</h3>
             <p>Mechanical & Control Engineer</p>
             <p>August 2022 - December 2022</p>
         </article>
-
-        <div class="photo-5 project-photos">
-            <img src="Tortilla Machine/tortillaMachine1.jpg">
-            <img src="Tortilla Machine/tortillaMachine2.jpg">
+        
+        <div class="photo-5 carousel">
+            <button class="prev"></button>
+            <div class="carousel-track">
+                <ul>
+                    <li><img src="Tortilla Machine/tortillaMachine1.jpg"></li>
+                    <li><img src="Tortilla Machine/tortillaMachine2.jpg"></li>
+                </ul>
+            </div>
+            <button class="next"></button>
         </div>
-
 
     </section>
 
