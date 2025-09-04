@@ -10,19 +10,38 @@ carousels.forEach( carousel => {
     let list = carousel.querySelector('ul')
     let slideWidth = 1000; // auto-read width
     let position = 0;
+    let dotIndex;
+    let dotButtons = carousel.querySelectorAll('.dot-selector');
     
     carousel.querySelector('.prev').onclick = function() {
-      position += slideWidth;
-      position = Math.min(position, 0);
-      list.style.transform = `translateX(${position}px)`;
+        position += slideWidth;
+        position = Math.min(position, 0);
+        dotIndex = Math.abs(position / slideWidth);
+        list.style.transform = `translateX(${position}px)`;
+
+        let dots = event.target.parentElement.querySelectorAll('.dot-selector')
+        dots.forEach((dot) => dot.classList.remove('dot-clicked'));
+        dots[dotIndex].classList.add('dot-clicked');
     };
     
     carousel.querySelector('.next').onclick = function() {
-      position -= slideWidth;
-      position = Math.max(position, -slideWidth * (slides.length - 1));
-      list.style.transform = `translateX(${position}px)`;
+        position -= slideWidth;
+        position = Math.max(position, -slideWidth * (slides.length - 1));
+        dotIndex = Math.abs(position / slideWidth);
+        list.style.transform = `translateX(${position}px)`;
+        let dots = event.target.parentElement.querySelectorAll('.dot-selector')
+        dots.forEach((dot) => dot.classList.remove('dot-clicked'));
+        dots[dotIndex].classList.add('dot-clicked');
     };
 
+    dotButtons.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            let clickedDots = dot.parentElement.querySelectorAll('.dot-clicked')
+            clickedDots.forEach((clicked) => clicked.classList.remove('dot-clicked'));
+            list.style.transform = `translateX(-${slideWidth * index}px)`;
+            dot.classList.add('dot-clicked');
+        });
+    });
 });
 
 

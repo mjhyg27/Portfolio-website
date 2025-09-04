@@ -16,6 +16,9 @@ ul {
 body {
     margin: 0;
     padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .nav-bar-container {
@@ -143,6 +146,7 @@ h1 {
     transition: opacity 0.7s;
 
 }
+
 #projects article {
     transition: opacity 1s;
 }
@@ -175,10 +179,50 @@ h1 {
     width: 100%;
     height: 800px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     max-width: 1000px;
     transition: opacity 1s;
+}
+.prev {
+    border: none;
+    border-left: 0.4rem solid  var(--complementary-color);
+    border-bottom: 0.4rem solid var(--complementary-color);
+    width: 2rem;
+    height: 2rem; 
+    background-color: transparent;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.next {
+    border: none;
+    border-left: 0.4rem solid var(--complementary-color);
+    border-bottom: 0.4rem solid var(--complementary-color);
+    width: 2rem;
+    height: 2rem; 
+    background-color: transparent;
+    transform: rotate(-135deg);
+    cursor: pointer;
+}
+.carousel-buttons {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.dot-selector {
+    border-radius: 50%;
+    border: none;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(156, 156, 156);
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.dot-clicked {
+    background-color: rgb(61, 61, 61);
 }
 
 .carousel img {
@@ -249,6 +293,26 @@ h1 {
 
 .photo-5 {
     grid-area: photo-5;
+}
+#education {
+    width: 100%;
+    height: 80vh;
+}
+
+#education-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+#education-text {
+    flex-grow: 1;
+    text-align: center;
+}
+#education-container img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
 }
 
 #stack {
