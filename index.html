@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-<<<<<<< HEAD
- 
-=======
+    <link rel="stylesheet" href="tailwind.css">
     <title>Miguel Romo
     </title>
->>>>>>> 430ecd0 (aded the contact thing)
 </head>
 <body>
 <header>
@@ -23,28 +20,53 @@
     </div>
     </nav>
 </header>
-<!-- Add donwloadCv, contact me button, resposiveness for mobile, add source
- code for projects and a live demo -->
+<!--
+In general:
+1. Add resposiveness for mobile,
+2. add source code for projects and a live demo, 
+3. add lazy loading, 
+4. Make it accesible and SEO friendly or whatever
+ 
+ 1. Hero container: Almos done, add download CV. search a font for my name
+ 2. My Experience: make it prettyt, and add the job descriptions, and also add more animation
+ 3. my projects: fix images, add a little bit of sanimation, and add descriptions
+ 4. My education: add description, make it pretty and animatins
+ 5. My skills: Just add icons-->
 <main>
     <div class="hero-container" id="home">
-        <p>Hi, I'm</p>
+        <p class="fill-animation-elem">Hi, I'm</p>
         <h1>Miguel Romo</h1>
-        <p><span>Mechatronics Engineer</span></p><br>
-        <p>Recent Graduate with <span>2+ years</span> of Experience</p>
+        <p class="fill-animation-elem"><span>Mechatronics Engineer</span></p><br>
+        <p class="fill-animation-elem">Recent Graduate with <span>2+ years</span> of Experience</p><br>
+        <p class="fill-animation-elem">Let's get in touch!</p><br>
+        <div id="contact-container">
+            <a href="https://github.com/mjhyg27" target="_blank" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/miguel-romo02/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" alt=""></a>
+            <a href=""><img src="https://www.iconpacks.net/icons/1/free-mail-icon-142-thumb.png" alt=""></a>
+        </div>
+        <button type="button" id="cv-download">Download my CV</button>
     </div>
 
     <section id="experience">
-        <h2>My Experience</h2>
+        <h2 class="section-title fill-animation-elem">My Experience</h2>
         <article class="job">
             <h3>SharkNinja</h3>
             <p>Test Engineer</p>
             <p>June 2023 - December 2023</p>
         </article>
 
+        <article class="job-description">
+            <p>Worked as a test Engineer developing new test fixtures</p>
+        </article>
+        
         <article class="job">
             <h3>UNISON</h3>
             <p>Control Engineer</p>
             <p>January 2024 - December 2024</p>
+        </article>
+        
+        <article class="job-description">
+            <p>Worked as a test Engineer developing new test fixtures</p>
         </article>
 
         <article class="job">
@@ -53,10 +75,13 @@
             <p>January 2025 - June 2025</p>
         </article>
 
+        <article class="job-description">
+            <p>Worked as a test Engineer developing new test fixtures</p>
+        </article>
     </section>
 
     <section id="projects">
-        <h2>My projects</h2>
+        <h2 class="section-title fill-animation-elem">My projects</h2>
 
         <article class="project-1 project">
             <h3>HMI-Controlled Coffee Maker Test Rig </h3>
@@ -173,11 +198,17 @@
         
     </section>
 
+    
     <section id="education">
-        <h2>My Education</h2>
+        <h2 class="section-title fill-animation-elem">My Education</h2>
         <div id="education-container">
-            <img src="https://www.olimpiadadeinformatica.org.mx/Resultados/img/escuelas/401.png" alt="">
-            <div id="education-text">
+            <div class="university-container">
+                <h3 class="text-4xl">Monterrey Institute of Technology and Higher Education</h3>
+                <div class="university-logo-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Logo_del_ITESM.svg/2085px-Logo_del_ITESM.svg.png" alt="">
+                </div>
+            </div>
+            <div id="education-text-container">
                 <p>Bachelor's Degree in Mechatronics Engineering</p>
                 <p>GPA: 4.0</p>
             </div>
@@ -185,7 +216,8 @@
     </section>
 
     <section id="stack">
-        <h2>My Skills</h2>
+        
+        <h2 class="section-title fill-animation-elem">My Skills</h2>
     
         <ul class="first-row"> 
             <li class="stack-item">JavaScript</li>
@@ -202,11 +234,8 @@
             <li class="stack-item">Node JS</li>
         </ul>
     </section>
-
 </main>
 <script src="script.js"></script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
->>>>>>> 430ecd0 (aded the contact thing)
+

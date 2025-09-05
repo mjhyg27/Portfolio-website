@@ -1,15 +1,24 @@
 
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
 
 
 :root {
     font-size: 16px;
+    --font: "hedvig-letters-serif";
     --main-color: #3A5A40;
+    --fill-color:hsl(131 21.6% 79%);
     --complementary-color: #5A3A54;
+    --white-color: #EDF2F4;
+
 }
+html {
+    font-family: "hedvig letters serif", sans-serif; /* Sets Arial as the preferred font, with sans-serif as a fallback */
+    }
 
 ul {
-  list-style: none;   /* removes bullets */
-  padding: 0;         /* removes default indentation */
+  list-style: none; 
+  padding: 0;        
   margin: 0;
 }
 
@@ -24,17 +33,15 @@ body {
 .nav-bar-container {
     display: flex;
     height: 6vh;
-    justify-content: space-between; /* pushes left and right apart */
+    justify-content: space-between; 
     font-size: 1.8rem;
     align-items: center;
-    background-color: #3A5A40;
-    /* background-color: #899D78; */
-
+    background-color: var(--main-color);
 }
 
 .nav-bar-container a {
     text-decoration: none;
-    color: #EDF2F4;
+    color: var(--white-color);
 }
 
 #name {
@@ -48,33 +55,100 @@ body {
     gap: 4rem;
 }
 
+.nav-bar-elem {
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;      
+  -webkit-background-clip: text;
+  background-clip: text;
+
+
+  background-image:
+    linear-gradient(to top, var(--fill-color)), 
+    linear-gradient(var(--white-color));             
+    
+    background-repeat: no-repeat, no-repeat;
+  background-position: bottom left, center;
+  background-size: 100% 0%, 100% 100%;   
+  transition: background-size .6s ease, transform .15s ease;
+}
+
+.nav-bar-elem:hover {
+    transform: scale(1.08);
+    background-size: 100% 100%, 100% 100%; 
+}
+
+.fill-animation-elem {
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;      
+  -webkit-background-clip: text;
+  background-clip: text;
+
+
+  background-image:
+    linear-gradient(to left, var(--fill-color)), 
+    linear-gradient(black);             
+
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom left, center;
+  background-size: 0% 100%, 100% 100%;   
+}
+
+.fill-animation-elem:hover {
+    background-size: 100% 100%, 100% 100%; 
+}
+
+/* .fill-animation-elem span {
+}
+.fill-animation-elem:hover span {
+  transform: scale(110%);
+  
+} */
+
 .hero-container {
-    height: 90vh;
+    height: 95vh;
     width: 98vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition-property: background-color;
     transition-duration: 3s;
+    transition: background-size 2s;
     justify-content: center;
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: bold;
+  color: transparent;
+  background-image: conic-gradient( green ,blue, red);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  animation: titleAnimation 4s infinite linear;
+}
+
+@keyframes titleAnimation { 
+  0% {
+    background-position: 0% 0%;
+} 
+50% {
+    background-position: 100% 100%;
+} 
+100% {
+    background-position: 0% 0%;
+}
 }
 
 .hero-container p {
     font-size: 3rem;
-    transition: color 0.5s;
-}
-.hero-container p:hover {
-    color:#3a5a41 ;
+    transition: color 0.5s, background-size 1s;
 }
 
-.hero-container span {
-    color: green;
-    transition: color 1s;
-}
-
-.hero-container span:hover {
-    color: red;
-}
 .hero-container img{
     width: 60px;
     height: 60px;
@@ -93,81 +167,108 @@ body {
     align-items: center;
 }
 
-
 #cv-download {
     cursor: pointer;
     width: 250px;
     font-size: 1.5rem;
     height: 60px;
-    margin-top: 35px;
+    margin-top: 55px;
     border-radius: 9px;
     border: none;
-    color: white;
+    color: var(--color-white);
+    background-color:var(--main-color);
+    position: relative;
+}
+
+#cv-download::before {
+    content: '';
+    z-index: -1;
+    position:absolute;
+    top: 0;
+    left: 0;
+    height: 103%;
+    width: 103%;
+    border-radius: inherit;
     background-image: linear-gradient(to left, green, red, orange, blue);
-
+    background-size: 300%;
+    animation: gradientBackground 20s infinite; 
+    filter: blur(10px);
 }
 
-h1 {
-  font-size: 6rem;
-  font-weight: bold;
-  color: transparent;
-  position: relative;
-  /* background-image: repeating-linear-gradient(45deg,  #3A5A40 0 20px,#5A3A54 20px 40px); */
-  background-image: conic-gradient( green ,blue, red);
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text; /* required for WebKit */
-  -webkit-text-fill-color: transparent; /* makes gradient visible in Safari/Chrome */
-  animation: titleAnimation 4s infinite linear;
-
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    } 50% {
+        background-position: 300% 500%;
+    } 100% {
+        background-position: 0% 500%;
+    } 
 }
 
-
-@keyframes titleAnimation { 
-  0% {
-    background-position: 0% 0%;
-  } 
-  50% {
-    background-position: 0% 50%;
-  } 
-  100% {
-    background-position: 0% 100%;
-  }
-}
 
 #experience {
     width: 98vw;
     padding: 0rem 0rem 4rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center ;
+    gap: 8.2rem;
     overflow: hidden;
 }
 
 #experience h2{
-    padding-top: 2rem;
-    margin-bottom: -1rem;
-    font-size: 3rem;
+    grid-column: 1 / -1;
 }
- 
+
+h2 {
+    transition: opacity 1s ,background-size 0.4s ease, background-color .2s;
+}
+
+.section-title {
+    font-size: 4rem;
+    margin-left: 1rem;
+    width: fit-content;
+}
+
 .job {
-    transform: translateX(200px);
+    transform: translateX(40%);
     opacity: 0;
     transition: transform 0.5s, opacity 0.6s;
 }
 
 .animatedJob {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(10%);
 }
-.job h3, p {
+
+.job h3 {
     font-size: 3rem;
     margin: 0;
  }
 
 .job p:first-of-type {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin: 0;
+}
+
+.job p {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.job-description {
+    background-color: antiquewhite;
+    border-radius: 10px;
+    width: 95%;
+    height: 100%;
+    padding: 8px;
+    box-shadow: 6px 6px 0px 6px rgb(230, 213, 195), 
+    -6px -6px 0px 6px rgb(230, 213, 195) ;
+}
+
+.job-description p{
+    font-size: 2rem;
 }
 
 #projects {
@@ -184,11 +285,11 @@ h1 {
     gap: 8rem;
     place-items: center;
     transition: opacity 0.7s;
-
 }
 
 #projects article {
     transition: opacity 1s;
+    align-self: start;
 }
 
 #projects h2 {
@@ -196,7 +297,6 @@ h1 {
     font-size: 4rem;
     justify-self: start;
     margin-left: 1rem;
-    transition: opacity 1s;
 }
 
 #projects h3 {
@@ -267,9 +367,9 @@ h1 {
 
 .carousel img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: contain; /* or cover */
-    display: block;
+    aspect-ratio: auto 1 / 1;
     transition: opacity 1s;
 }
 
@@ -293,50 +393,24 @@ h1 {
     width: 1000px;   /* fixed slide width */
     height: 800px;
     transition: opacity 1s;
-}  
+} 
 
-.project-1 {
-    grid-area: project-1;
-}
+.project-1 {grid-area: project-1;}
+.photo-1 {grid-area: photo-1;}
+.project-2 {grid-area: project-2;}
+.photo-2 {grid-area: photo-2;}
+.project-3 {grid-area: project-3;}
+.photo-3 {grid-area: photo-3;}
+.project-4 {grid-area: project-4;}
+.photo-4 {grid-area: photo-4;}
+.project-5 {grid-area: project-5;}
+.photo-5 {grid-area: photo-5;}
 
-.photo-1 {
-    grid-area: photo-1;
-}
-
-.project-2 {
-    grid-area: project-2;
-}
-
-.photo-2 {
-    grid-area: photo-2;
-}
-
-.project-3 {
-    grid-area: project-3;
-}
-
-.photo-3 {
-    grid-area: photo-3;
-}
-
-.project-4 {
-    grid-area: project-4;
-}
-
-.photo-4 {
-    grid-area: photo-4;
-}
-
-.project-5 {
-    grid-area: project-5;
-}
-
-.photo-5 {
-    grid-area: photo-5;
-}
 #education {
     width: 100%;
     height: 80vh;
+    background-color: #1F487E;
+
 }
 
 #education-container {
@@ -345,15 +419,34 @@ h1 {
     height: 100%;
     align-items: center;
 }
-#education-text {
+#education-text-container {
     flex-grow: 1;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90%;
+    background-color: #3A5A40;
+    
+}
+.university-logo-container {
+    width: 40%;
+    height: 40%;
 }
 #education-container img {
-    width: 60%;
-    height: 60%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
+
+.university-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
 
 #stack {
     width: 100%;
@@ -391,49 +484,4 @@ h1 {
     transition: background-color 0.5s, transform 0.2s;
     background-color: rgb(117, 212, 212);
     transform: rotate(4deg);
-}
-
-.autoRotate {
-    animation: autoRotateAnimation;
-    animation-timeline: view();
-}
-
-@keyframes autoRotateAnimation {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transfrom: rotate(360deg);
-    }
-}
-
-.autoShow {
-    animation: autoShowAnimation both;
-    animation-timeline: view(40%,50%);
-}
-@keyframes autoShowAnimation {
-    from {
-        opacity:0;
-        transform: translateY(200px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-.autoBlur {
-    animation: autoBlurAnimation linear both;
-    animation-timeline: view();
-}
-@keyframes autoBlurAnimation {
-    0% {
-        filter: blur(40px);
-    }
-    45%, 55% {
-        filter: blur(0px);
-    }
-    100% {
-        filter: blur(40px);
-    }
-    
 }
